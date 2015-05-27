@@ -1,0 +1,24 @@
+{
+  "name": "kbsymanzik.org",
+  "version": "0.0.1",
+  "authors": [
+    "Kurt Symanzik <kurt@kbsymanzik.org>"
+  ],
+  "description": "Our blog built with Metalsmith.",
+  "main": "build.js",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "src/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.3",
+    "bootstrap": "~3.3.4"
+  }
+}

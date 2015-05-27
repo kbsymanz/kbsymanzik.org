@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    block head
+      block title
+        title= title ? title + " | " + site.title : site.title
+
+    //- The CSS.
+    link(href="/styles/main.css", rel="stylesheet")
+
+    //- The JS.
+    script(src='/js/vendor.js')
+    script(src='/js/main.js')
+  body
+    block body
+      #layout-main
+        block main
+        block home
+        block posts
+

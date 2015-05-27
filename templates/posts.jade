@@ -1,0 +1,12 @@
+extends layout
+
+block main
+  #posts
+    h1= site.title
+    if collections.posts && collections.posts.length > 0
+      each post in collections.posts
+        h2
+          a(href='/'+post.path)!= post.title
+        div!= post.contents
+    else
+      h2 Sorry, no posts!

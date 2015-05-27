@@ -1,0 +1,9 @@
+extends layout
+
+block main
+  article#article
+    h1= title
+    div By #{author} | Published #{moment(publishDate).format('MMM DD, YYYY')}
+    hr
+    div!= contents
+

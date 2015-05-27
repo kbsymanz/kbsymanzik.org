@@ -1,0 +1,26 @@
+{
+  "name": "kbsymanzik.org",
+  "version": "0.0.1",
+  "description": "Our blog build with Metalsmith.",
+  "main": "build.js",
+  "dependencies": {
+    "jade": "^1.9.2",
+    "metalsmith": "^1.7.0",
+    "metalsmith-branch": "0.0.4",
+    "metalsmith-collections": "^0.7.0",
+    "metalsmith-concat": "^2.0.0",
+    "metalsmith-excerpts": "^1.0.0",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.4.0",
+    "metalsmith-serve": "0.0.3",
+    "metalsmith-templates": "^0.7.0",
+    "metalsmith-watch": "^1.0.1",
+    "moment": "^2.10.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kurt Symanzik <kurt@kbsymanzik.org>",
+  "license": "MIT"
+}
