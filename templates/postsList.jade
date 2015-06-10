@@ -1,0 +1,9 @@
+#postsList
+  div(class='panel panel-default')
+    div(class='panel-heading') Recent posts
+    div(class='panel-body')
+      if collections.posts && collections.posts.length > 0
+        ul(class='postsList')
+          each post in collections.posts
+            li(class='')
+              a(href='/'+post.path)!= post.title

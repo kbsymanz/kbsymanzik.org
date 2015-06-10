@@ -1,20 +1,31 @@
 doctype html
 html
   head
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     block head
       block title
         title= title ? title + " | " + site.title : site.title
 
     //- The CSS.
+    link(href="/styles/vendor.css", rel="stylesheet")
     link(href="/styles/main.css", rel="stylesheet")
 
     //- The JS.
     script(src='/js/vendor.js')
     script(src='/js/main.js')
-  body
-    block body
-      #layout-main
+  body(class='container')
+    //- The site header.
+    div(class='page-header')
+      a(class='' href='/')
+        h1(id='title')= site.title
+        h3(id='sub-title') musings and other stuff
+    div
+      #layout-main(class='col-md-9')
         block main
         block home
         block posts
+      #layout-right(class='col-md-3')
+        include ./postsList.jade
 
+    div
+      include ./footer.jade

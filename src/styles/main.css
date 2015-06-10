@@ -1,5 +1,42 @@
 
-h1 {
-  color: blue;
+.container {
+  background-image: url(../images/Coffee-16948426_75x87.jpg);
+  background-repeat: no-repeat;
+  background-position: right 5% top 0;
 }
+
+/* Title/Sub title for the whole site. */
+#title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-right: 80px;
+}
+#sub-title {
+  color: #999;
+  font-style: italic;
+  font-weight: 100;
+  margin-top: 0;
+  padding-top: 0;
+  padding-left: 20px;
+}
+
+.page-header a {
+ text-decoration: none; 
+}
+
+/* postsList: list of posts on the right */
+#postsList .panel-body {
+  padding-left: 0;
+}
+ul.postsList {
+  list-style-type: none !important;
+  padding-left: 15px;
+}
+
+
+/* footer */
+#footer {
+  margin-top: 30px;
+}
+
 

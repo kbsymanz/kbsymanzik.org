@@ -8,6 +8,7 @@ var metalsmith = require('metalsmith'),
     permalinks = require('metalsmith-permalinks'),
     excerpts = require('metalsmith-excerpts'),
     concat = require('metalsmith-concat'),
+    copy = require('metalsmith-copy'),
     moment = require('moment');
 
 var siteBuild = metalsmith(__dirname)
@@ -26,6 +27,20 @@ var siteBuild = metalsmith(__dirname)
       'bower_components/bootstrap/dist/js/bootstrap.js'
     ],
     output: 'js/vendor.js'
+  }))
+  .use(concat({
+    files: [
+     'bower_components/bootstrap/dist/css/bootstrap.css'
+    ],
+    output: 'styles/vendor.css'
+  }))
+  .use(copy({
+    pattern: 'bower_components/bootstrap/dist/css/*.map',
+    directory: 'styles/'
+  }))
+  .use(copy({
+    pattern: 'bower_components/bootstrap/dist/fonts/*',
+    directory: 'fonts/'
   }))
   .use(markdown())
   .use(excerpts())
