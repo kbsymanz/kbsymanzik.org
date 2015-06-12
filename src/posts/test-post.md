@@ -4,6 +4,7 @@ publishDate: 2015-05-09
 modifyDate: 2015-05-09
 author: Kurt Symanzik
 template: post.jade
+images: ['IMAGE-01', 'IMAGE-02-SMALL-RIGHT']
 ---
 
 This is a test post. If this had been an actual post, it might have been

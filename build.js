@@ -11,6 +11,20 @@ var metalsmith = require('metalsmith'),
     copy = require('metalsmith-copy'),
     moment = require('moment');
 
+// --------------------------------------------------------
+// http://blog.lecomte.me/posts/2014/gentle-intro-metalsmith/way-of-metalsmith/
+// --------------------------------------------------------
+var logFilesMap = function(files, metalsmith, done) {
+    Object.keys(files).forEach(function (file) {
+        var fileObject = files[file];
+
+        if (file.indexOf('posts') === 0) {
+          console.log("key -------> ", file);
+          console.log("value -----> ", fileObject);
+        }
+    });
+};
+
 var siteBuild = metalsmith(__dirname)
   .metadata({
     site: {
@@ -61,6 +75,7 @@ var siteBuild = metalsmith(__dirname)
     engine: 'jade',
     moment: moment    // make the moment library available to the templates
   }))
+  .use(logFilesMap)
   .use(serve({
     port: 9000,
     verbose: true
