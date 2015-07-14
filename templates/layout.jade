@@ -1,6 +1,11 @@
 doctype html
 html
   head
+    <!-- Header font -->
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Comfortaa:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Short+Stack|Eagle+Lake|Peralta|Special+Elite|McLaren' rel='stylesheet' type='text/css'>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     block head
       block title
@@ -15,17 +20,36 @@ html
     script(src='/js/main.js')
   body(class='container')
     //- The site header.
-    div(class='page-header')
-      a(class='' href='/')
-        h1(id='title')= site.title
-        h3(id='sub-title') musings and other stuff
-    div
-      #layout-main(class='col-md-9')
-        block main
-        block home
-        block posts
-      #layout-right(class='col-md-3')
-        include ./postsList.jade
+    div#outer-header
+      div(class='page-header')
+        img(id='title-image', src='/images/layout/Coffee-16948426_75x87-trans.png')
+        a(class='' href='/')
+          h1(id='title')= site.title
+          h3(id='sub-title') musings and other stuff
+    div.colortest-outer Theme 1 &nbsp; &nbsp;
+      div(class='colortest t1-color1') color-one
+      div(class='colortest t1-color2') color-two
+      div(class='colortest t1-color3') color-three
+      div(class='colortest t1-color4') color-four
+      div(class='colortest t1-color5') color-five
+    div.colortest-outer Theme 2 &nbsp; &nbsp;
+      div(class='colortest t2-color1') color-one
+      div(class='colortest t2-color2') color-two
+      div(class='colortest t2-color3') color-three
+      div(class='colortest t2-color4') color-four
+      div(class='colortest t2-color5') color-five
+    div.colortest-outer Theme 3 &nbsp; &nbsp;
+      div(class='colortest t3-color1') color-one
+      div(class='colortest t3-color2') color-two
+      div(class='colortest t3-color3') color-three
+      div(class='colortest t3-color4') color-four
+      div(class='colortest t3-color5') color-five
+    #layout-main(class='col-md-9')
+      block main
+      block home
+      block posts
+    #layout-right(class='col-md-3')
+      include ./postsList.jade
 
     div
       include ./footer.jade

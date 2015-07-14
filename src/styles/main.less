@@ -1,0 +1,244 @@
+/* Colors
+ * #6181C0
+ * #FFB073
+ * #FFE573
+ * #854521 - Coffee color background of current website.
+ */
+
+/*
+ * This is the chosen theme, Theme 3 below.
+ * https://color.adobe.com/Coffee-stain-color-theme-2619605/
+ *
+ *
+ * https://color.adobe.com/coffee-break-color-theme-90894/
+ * #332822, #FF9F8F, #F2DFBC, #8D9E71, #7F7E60
+ *
+ * Kirsten likes these two instead.
+ * https://color.adobe.com/Coffee-color-theme-1492952/
+ * https://color.adobe.com/Coffee-Cup-color-theme-3363000/
+ *
+ * Beth likes these two colors best.
+ * https://color.adobe.com/Coffee-stain-color-theme-2619605/
+ * https://color.adobe.com/Coffee-Cup-color-theme-3363000/
+ *
+ * https://color.adobe.com/Scotts-Coffee-color-theme-984881/
+ * https://color.adobe.com/Coffee-color-theme-2485769/
+ */
+
+/* Theme 1
+https://color.adobe.com/Coffee-Cup-color-theme-3363000/ */
+@t1-color-one: #7F6A5C;
+@t1-color-two: #FFA76B;
+@t1-color-three: #FFD4B8;
+@t1-color-four: #7F5336;
+@t1-color-five: #CCAA93;
+
+/* Theme 2
+https://color.adobe.com/Coffee-color-theme-1492952/ */
+@t2-color-one: #00010D;
+@t2-color-two: #301E1C;
+@t2-color-three: #916345;
+@t2-color-four: #EDBA8A;
+@t2-color-five: #F2F2F2;
+
+/* Theme 3
+https://color.adobe.com/Coffee-stain-color-theme-2619605/ */
+@t3-color-one: #F5ECC3;
+@t3-color-two: #E9CF92;
+@t3-color-three: #CA902C;
+@t3-color-four: #904420;
+@t3-color-five: #4F2512;
+
+@color-one:   @t3-color-one;
+@color-two:   @t3-color-two;
+@color-three: @t3-color-three;
+@color-four:  @t3-color-four;
+@color-five:  @t3-color-five;
+
+/* DOM Element coloration */
+@background-color: @color-one;
+@title-color: @color-one;
+@subtitle-color: @color-one;
+@panel-heading-fore-color: @color-one;
+@panel-heading-back-color: @color-four;
+@panel-body-fore-color: @color-five;
+@panel-body-back-color: @color-one;
+@panel-border-color: @color-five;
+@link-color: @color-three;
+@link-hover-color: @color-four;
+@subtle-text-color: @color-three;
+@well-fore-color: @color-five;
+@well-back-color: @color-three;
+
+/* Container */
+.container {
+  background-color: @background-color;
+}
+
+#outer-header {
+  margin-top: 10px;
+  padding: 15px 20px;
+  background-color: @well-back-color;
+  border-top: 4px solid @panel-border-color;
+  border-bottom: 4px solid @panel-border-color;
+}
+
+.page-header {
+  border-bottom: none !important;
+  position: relative;   /* needed to position coffee image */
+
+  /* A bit classier */
+  /* This is the font chosen by Beth and I for the title and sub-title. */
+  font-family: 'Poiret One', cursive;
+
+  /* Loose but not too loose */
+  /*font-family: 'Comfortaa', cursive;*/
+
+  /* Fun */
+  /*font-family: 'Eagle Lake', cursive;*/
+  /*font-family: 'Peralta', cursive;*/
+
+  /* Bit messed up */
+  /*font-family: 'Special Elite', cursive;*/
+
+  /* Less serious */
+  /*font-family: 'Short Stack', cursive;*/
+  /*font-family: 'McLaren', cursive;*/
+}
+.page-header a {
+ text-decoration: none;
+}
+
+#title-image {
+  position: absolute;
+  right: 0;
+  bottom: -15px;
+}
+
+/* Title/Sub title for the whole site. */
+#title {
+  color: @title-color;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-right: 80px;
+  font-size: 38pt;
+  font-weight: 800;
+}
+#sub-title {
+  color: @panel-border-color;
+  font-style: italic;
+  font-weight: 100;
+  font-size: 26pt;
+  margin-top: 0;
+  padding-top: 0;
+  padding-left: 20px;
+}
+
+.colortest-outer {
+  display: none;
+  margin-top: 20px;
+  height: 30px;
+  max-height: 30px;
+  width: 600px;
+  color: black;
+}
+.colortest {
+  width: 120px;
+  min-width: 120px;
+  height: 100%;
+  display: inline;
+  padding: 15px 10px;
+  color: white;
+}
+.t1-color1 {background-color: @t1-color-one;}
+.t1-color2 {background-color: @t1-color-two;}
+.t1-color3 {background-color: @t1-color-three;}
+.t1-color4 {background-color: @t1-color-four;}
+.t1-color5 {background-color: @t1-color-five;}
+.t2-color1 {background-color: @t2-color-one;}
+.t2-color2 {background-color: @t2-color-two;}
+.t2-color3 {background-color: @t2-color-three;}
+.t2-color4 {background-color: @t2-color-four;}
+.t2-color5 {background-color: @t2-color-five;}
+.t3-color1 {background-color: @t3-color-one;}
+.t3-color2 {background-color: @t3-color-two;}
+.t3-color3 {background-color: @t3-color-three;}
+.t3-color4 {background-color: @t3-color-four;}
+.t3-color5 {background-color: @t3-color-five;}
+
+#layout-main {
+
+
+}
+
+/* panels in general */
+.panel > .panel-heading {
+  color: @panel-heading-fore-color !important;
+  background-color: @panel-heading-back-color;
+  font-size: 120%;
+}
+
+/* postsList: list of posts on the right */
+#postsList {
+  margin-top: 20px;
+}
+#postsList .panel-heading {
+  color: @panel-body-fore-color;
+  border-top: 1px solid @panel-border-color;
+  border-left: 1px solid @panel-border-color;
+  border-right: 1px solid @panel-border-color;
+}
+#postsList .panel-body {
+  padding-left: 0;
+  background-color: @panel-body-back-color;
+  border-left: 1px solid @panel-border-color;
+  border-right: 1px solid @panel-border-color;
+  border-bottom: 1px solid @panel-border-color;
+}
+ul.postsList {
+  list-style-type: none !important;
+  padding-left: 15px;
+}
+ul.postsList a {
+  color: @link-color;
+}
+ul.postsList a:hover {
+  color: @link-hover-color;
+  text-decoration: none;
+}
+
+/* Posts */
+.post-title {
+  border-top: 3px solid @link-color;
+  padding: 10px 0 5px 5px;
+}
+.post-title a {
+  color: @link-color;
+}
+.post-title a:hover {
+  color: @link-hover-color;
+  text-decoration: none;
+}
+.post-meta-moddate {
+  width: 100%;
+  text-align: right;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: @subtle-text-color;
+}
+
+.post-contents {
+  font-size: 120%;
+  margin-bottom: 50px;
+}
+
+/* footer */
+#footer {
+  margin-top: 30px;
+}
+#footer-inner {
+  color: @well-fore-color;
+  background-color: @well-back-color;
+}
+
+

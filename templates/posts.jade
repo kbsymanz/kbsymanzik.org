@@ -4,8 +4,10 @@ block main
   #posts
     if collections.posts && collections.posts.length > 0
       each post in collections.posts
-        h2
+        - var modDate = moment(post.modifyDate).format('MMMM D, YYYY');
+        h2(class='post-title')
           a(href='/'+post.path)!= post.title
-        div!= post.contents
+        div(class='post-meta-moddate')= modDate
+        div(class='post-contents')!= post.contents
     else
       h2 Sorry, no posts!
