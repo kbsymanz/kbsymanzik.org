@@ -69,6 +69,7 @@ https://color.adobe.com/Coffee-stain-color-theme-2619605/ */
 @subtle-text-color: @color-three;
 @well-fore-color: @color-five;
 @well-back-color: @color-three;
+@post-content-border-color: @color-five;
 
 /* Container */
 .container {
@@ -230,6 +231,12 @@ ul.postsList a:hover {
 .post-contents {
   font-size: 120%;
   margin-bottom: 50px;
+  padding: 30px 20px;
+  border-left: 3px solid @post-content-border-color;
+  border-right: 3px solid @post-content-border-color;
+  border-top: 3px solid @post-content-border-color;
+  border-bottom: 3px solid @post-content-border-color;
+  background-color: white;
 }
 
 /* footer */
