@@ -1,9 +1,12 @@
+//- This is the listing of posts in TOC format for
+//- right sidebar.
+- maxNumber = 20;
 #postsList
   div(class='panel panel-default')
     div(class='panel-heading') Recent posts
     div(class='panel-body')
       if collections.posts && collections.posts.length > 0
         ul(class='postsList')
-          each post in collections.posts
+          each post in collections.posts.slice(0, maxNumber)
             li(class='')
               a(href='/'+post.path)!= post.title

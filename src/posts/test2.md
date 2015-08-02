@@ -3,6 +3,7 @@ title: This is yet another test post
 publishDate: 2015-05-18
 modifyDate: 2015-05-18
 author: Kurt Symanzik
+collection: posts
 template: post.jade
 ---
 

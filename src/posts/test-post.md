@@ -4,6 +4,7 @@ publishDate: 2015-05-09
 modifyDate: 2015-05-09
 author: Kurt Symanzik
 template: post.jade
+collection: posts
 IMAGE-01: images/Coffee-16948426_75x87.jpg
 ---
 

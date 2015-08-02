@@ -10,6 +10,7 @@ var metalsmith = require('metalsmith'),
     concat = require('metalsmith-concat'),
     copy = require('metalsmith-copy'),
     less = require('metalsmith-less'),
+    pagination = require('metalsmith-pagination')
     moment = require('moment');
 
 // --------------------------------------------------------
@@ -38,7 +39,6 @@ var logFilesMap = function(files, metalsmith, done) {
 // --------------------------------------------------------
 var easyImage = function(config) {
   var pattern = config.pattern || void 0;
-  console.log(pattern);
 
   return function(files, metalsmith, done) {
     var getFields = function(keys) {
@@ -82,6 +82,7 @@ var siteBuild = metalsmith(__dirname)
   })
   .source('./src')
   .destination('./out')
+  .concurrency(250)
   .use(less({
     // Just my less file, not the vendor's.
     pattern: 'styles/main.less'
@@ -107,37 +108,53 @@ var siteBuild = metalsmith(__dirname)
     pattern: 'bower_components/bootstrap/dist/fonts/*',
     directory: 'fonts/'
   }))
-  .use(easyImage({
-    pattern: 'posts/*.md'
-  }))
+  //.use(easyImage({
+    //pattern: 'posts/*.md'
+  //}))
   .use(markdown())
   .use(excerpts())
   .use(collections({
     posts: {
-      pattern: 'posts/**.html',
       sortBy: 'publishDate',
       reverse: true
     }
   }))
-  .use(branch('posts/**.html')
+  .use(pagination({
+    'collections.posts': {
+      perPage: 5,
+      template: 'pages.jade',
+      first: 'index.html',
+      path: 'page/:num/index.html'
+    }
+  }))
+  .use(branch('posts/*.html')
     .use(permalinks({
       pattern: 'posts/:title',
       relative: false
     }))
   )
+  .use(branch('posts/legacy/*.html')
+    .use(permalinks({
+      pattern: 'posts/legacy/:title',
+      relative: false
+    }))
+  )
   .use(templates({
     engine: 'jade',
-    moment: moment    // make the moment library available to the templates
+    moment: moment,
+    util: require('util')
   }))
   //.use(logFilesMap)
   .use(serve({
     port: 9000,
     verbose: true
   }))
-  .use(watch({
-    pattern: '**/*',
-    livereload: true
-  }))
+  // NOTE: this does not seem to work with Metalsmith 2.0.1.
+  // (not that it worked that great before.)
+  //.use(watch({
+    //pattern: '**/*',
+    //livereload: true
+  //}))
   .build(function (err) {
     if (err) {
       console.log(err);

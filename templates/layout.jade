@@ -26,28 +26,30 @@ html
         a(class='' href='/')
           h1(id='title')= site.title
           h3(id='sub-title') musings and other stuff
-    div.colortest-outer Theme 1 &nbsp; &nbsp;
-      div(class='colortest t1-color1') color-one
-      div(class='colortest t1-color2') color-two
-      div(class='colortest t1-color3') color-three
-      div(class='colortest t1-color4') color-four
-      div(class='colortest t1-color5') color-five
-    div.colortest-outer Theme 2 &nbsp; &nbsp;
-      div(class='colortest t2-color1') color-one
-      div(class='colortest t2-color2') color-two
-      div(class='colortest t2-color3') color-three
-      div(class='colortest t2-color4') color-four
-      div(class='colortest t2-color5') color-five
-    div.colortest-outer Theme 3 &nbsp; &nbsp;
-      div(class='colortest t3-color1') color-one
-      div(class='colortest t3-color2') color-two
-      div(class='colortest t3-color3') color-three
-      div(class='colortest t3-color4') color-four
-      div(class='colortest t3-color5') color-five
+    //- div.colortest-outer Theme 1 &nbsp; &nbsp;
+      //- div(class='colortest t1-color1') color-one
+      //- div(class='colortest t1-color2') color-two
+      //- div(class='colortest t1-color3') color-three
+      //- div(class='colortest t1-color4') color-four
+      //- div(class='colortest t1-color5') color-five
+    //- div.colortest-outer Theme 2 &nbsp; &nbsp;
+      //- div(class='colortest t2-color1') color-one
+      //- div(class='colortest t2-color2') color-two
+      //- div(class='colortest t2-color3') color-three
+      //- div(class='colortest t2-color4') color-four
+      //- div(class='colortest t2-color5') color-five
+    //- div.colortest-outer Theme 3 &nbsp; &nbsp;
+      //- div(class='colortest t3-color1') color-one
+      //- div(class='colortest t3-color2') color-two
+      //- div(class='colortest t3-color3') color-three
+      //- div(class='colortest t3-color4') color-four
+      //- div(class='colortest t3-color5') color-five
     #layout-main(class='col-md-9')
       block main
       block home
       block posts
+      block post
+      block pages
     #layout-right(class='col-md-3')
       include ./postsList.jade
 
