@@ -11,7 +11,8 @@ var metalsmith = require('metalsmith'),
     copy = require('metalsmith-copy'),
     less = require('metalsmith-less'),
     pagination = require('metalsmith-pagination')
-    moment = require('moment');
+    moment = require('moment'),
+    path = require('path');
 
 // --------------------------------------------------------
 // http://blog.lecomte.me/posts/2014/gentle-intro-metalsmith/way-of-metalsmith/
@@ -20,12 +21,58 @@ var logFilesMap = function(files, metalsmith, done) {
   Object.keys(files).forEach(function (file) {
       var fileObject = files[file];
 
-      if (file.indexOf('posts') === 0) {
+      if (file.indexOf('files') === 0) {
         console.log("key -------> ", file);
         console.log("value -----> ", fileObject);
       }
   });
   done();
+};
+
+/* --------------------------------------------------------
+ * newsletters()
+ *
+ * Create a group of newsletters that will be available to
+ * the templates as the newsletters array. The elements of
+ * the array will have the fields path and name.
+ *
+ * Currently only configuration option is pattern, which is
+ * expected to be a true JS regular expression pattern in
+ * String form.
+ *
+ * param       config
+ * -------------------------------------------------------- */
+var newsletters = function(config) {
+  config = config || {};
+  var pattern = config.pattern;
+
+  // --------------------------------------------------------
+  // Collect the files and populate the metadata.newsletters
+  // array.
+  // --------------------------------------------------------
+  return function(files, metalsmith, done) {
+    var metadata = metalsmith.metadata();
+    metadata.newsletters = [];
+    Object.keys(files).forEach(function(file) {
+      var fileObject = files[file];
+      var nlObject = {};
+      if (file.search(pattern) !== -1) {
+        nlObject.path = file;
+        nlObject.name = path.basename(file);
+        metadata.newsletters.push(nlObject);
+      }
+    });
+
+    // --------------------------------------------------------
+    // Sort the newsletters by name in reverse order.
+    // --------------------------------------------------------
+    metadata.newsletters.sort(function(a, b) {
+      if (b.name < a.name) return -1;
+      if (b.name > a.name) return 1;
+      return 0;
+    });
+    done();
+  };
 };
 
 // --------------------------------------------------------
@@ -72,7 +119,8 @@ var easyImage = function(config) {
   };
 };
 
-var siteBuild = metalsmith(__dirname)
+var siteBuild = metalsmith(__dirname);
+siteBuild
   .metadata({
     site: {
       title: 'Symanzik Family Update',
@@ -139,6 +187,10 @@ var siteBuild = metalsmith(__dirname)
       relative: false
     }))
   )
+  .use(newsletters({
+    // Regular expression syntax.
+    pattern: 'files\/newsletters\/.*\.pdf'
+  }))
   .use(templates({
     engine: 'jade',
     moment: moment,

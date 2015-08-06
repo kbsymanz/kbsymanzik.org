@@ -1,0 +1,13 @@
+//- This is the listing of newsletters for the right sidebar.
+- maxNumber = 4;
+#newslettersList
+  div(class='panel panel-default')
+    div(class='panel-heading') Recent newsletters
+    div(class='panel-body')
+      if newsletters && newsletters.length > 0
+        ul(class='postsList')
+          each nl in newsletters.slice(0, maxNumber)
+            li(class='')
+              a(href='/'+nl.path)!= nl.name
+      else
+        div No newsletters!
