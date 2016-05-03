@@ -213,6 +213,13 @@ siteBuild
     }
     else {
       console.log('Site build complete!');
+      if (process.argv[2] && process.argv[2] === 'preview') {
+        console.log('Site preview is UP at http://localhost:9000.');
+      } else {
+        // Just exit after building the site.
+        console.log('To preview, add "preview" as argument.');
+        process.exit(0);
+      }
     }
   });
 
