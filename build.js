@@ -2,7 +2,6 @@ var metalsmith = require('metalsmith'),
     templates = require('metalsmith-templates'),
     markdown = require('metalsmith-markdown')
     serve = require('metalsmith-serve'),
-    watch = require('metalsmith-watch')
     collections = require('metalsmith-collections'),
     branch = require('metalsmith-branch'),
     permalinks = require('metalsmith-permalinks'),
@@ -201,12 +200,6 @@ siteBuild
     port: 9000,
     verbose: true
   }))
-  // NOTE: this does not seem to work with Metalsmith 2.0.1.
-  // (not that it worked that great before.)
-  //.use(watch({
-    //pattern: '**/*',
-    //livereload: true
-  //}))
   .build(function (err) {
     if (err) {
       console.log(err);
