@@ -3,10 +3,10 @@ extends layout
 block pages
   #posts
     each post in pagination.files
-      - var modDate = moment(post.modifyDate).format('MMMM D, YYYY');
+      - var pubDate = moment(post.publishDate).format('MMMM D, YYYY');
       h2(class='post-title')
         a(href='/'+post.path)!= post.title
-      div(class='post-meta-moddate')= modDate
+      div(class='post-meta-moddate')= pubDate
       div(class='post-contents')!= post.contents
       //-textarea= util.inspect(pagination)
     div.row
